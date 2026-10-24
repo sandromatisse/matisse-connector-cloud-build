@@ -1,0 +1,25 @@
+# Backup personali e dati dei dispositivi
+/backups/
+/research/
+/.tools/
+/CONTINUA_QUI.md
+/matisse_transfer/IPHONE.md
+
+# Ambienti e output di build
+**/__pycache__/
+*.py[cod]
+/.venv/
+/venv/
+/build/
+/dist/
+/matisse_transfer/ios_connector/build/
+/matisse_transfer/ios_connector/MatisseConnector.xcodeproj/
+*.ipa
+*.app/
+*.log
+
+# File locali e credenziali
+.env
+.env.*
+*.p12
+*.mobileprovision

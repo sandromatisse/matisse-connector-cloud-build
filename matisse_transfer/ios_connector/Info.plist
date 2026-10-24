@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDisplayName</key>
+  <string>Matisse Connector</string>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>Matisse aggiunge al rullino solo le foto e i video selezionati dal backup Android.</string>
+  <key>NSLocalNetworkUsageDescription</key>
+  <string>Matisse riceve dal tuo PC i soli file che hai selezionato per il trasferimento.</string>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+    <key>NSAllowsLocalNetworking</key>
+    <true/>
+  </dict>
+  <key>UIFileSharingEnabled</key>
+  <true/>
+  <key>LSSupportsOpeningDocumentsInPlace</key>
+  <true/>
+</dict>
+</plist>

@@ -1,0 +1,27 @@
+name: Build iOS connector
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate Xcode project
+        run: xcodegen generate --spec project.yml
+        working-directory: matisse_transfer/ios_connector
+      - name: Build unsigned app for device
+        run: xcodebuild -project MatisseConnector.xcodeproj -scheme MatisseConnector -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
+        working-directory: matisse_transfer/ios_connector
+      - name: Package unsigned IPA
+        run: |
+          mkdir Payload
+          cp -R MatisseConnector.app Payload/
+          zip -qr MatisseConnector-unsigned.ipa Payload
+        working-directory: matisse_transfer/ios_connector/build/Build/Products/Release-iphoneos
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: MatisseConnector-unsigned-ipa
+          path: matisse_transfer/ios_connector/build/Build/Products/Release-iphoneos/MatisseConnector-unsigned.ipa

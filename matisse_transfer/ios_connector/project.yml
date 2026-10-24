@@ -1,0 +1,19 @@
+name: MatisseConnector
+options:
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  MatisseConnector:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+    info:
+      path: Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.matisse.transfer.connector
+        PRODUCT_NAME: MatisseConnector
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic
